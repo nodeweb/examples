@@ -54,7 +54,7 @@ func ExampleScrape(sum int) {
   
   doc2,_ := goquery.NewDocumentFromResponse(resp);
   msg := doc2.Find(".message").Text()
-  fmt.Printf("投票第%d次，%s\n",sum,string(msg));
+  fmt.Printf("The %d time，%s\n",sum,string(msg));
 }
 
 func main() {
@@ -63,6 +63,6 @@ func main() {
     sum++
     ExampleScrape(sum)
   }
-  fmt.Printf("你为詹少玲新投了%d票!\n",sum)
+  fmt.Printf("You just post %d times!\n",sum)
 }
 
