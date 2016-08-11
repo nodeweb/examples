@@ -17,7 +17,7 @@ var app = express();
 // create session
 var RedisStore = require('connect-redis')(Session);
 var Options = {
-     "host": "125.88.168.48",
+     "host": "127.0.0.1",
      "port": "6379",
      "ttl": 60 * 60 * 12,   //Session的有效期为12小时
 };
