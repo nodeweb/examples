@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+ <head>
+   <meta charset='utf-8'>
+   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+   <title>报名</title>
+   <link rel="stylesheet" href="/template/baoming/base.css">
+   <script src="https://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+   <script src="/template/baoming/test.js"></script>
+ </head>
+ <body>
+    <% if(vip){ %><!-- 报名表及报名成功 -->
+        <% include form.html %>
+    <% }else{ %><!-- 提醒关注 -->
+        <div class="pop">
+          <div class="pop_in">
+            <p>您还未关注九州快讯</p>
+            <img src="/template/baoming/images/code.png" />
+            <p>长按图片扫码关注</p>
+          </div>
+        </div>
+    <% } %>
+    <% if(info.length>0){ %>
+        <div class="pop">
+          <div class="pop_in">
+            <div class="success"><img src="/template/baoming/images/success.png" alt=""><br>电子门票已发送！<br>请打开九州快讯公众号查收！</div>
+          </div>
+        </div>
+    <%}%>
+<% include ../common/wx_share.html %>
+<script>
+wx.ready(function(){
+    var sdata = {
+        title: '九州快讯',
+        desc: '汽车后市场人脉圈',
+        link:window.location.href,
+        imgUrl: 'http://video.jiuzhouauto.com/x-ui/redrain.png',
+        success: function () { },
+        cancel: function () { }
+    };
+    wx.onMenuShareTimeline(sdata);
+    wx.onMenuShareAppMessage(sdata);
+});
+</script>
+</body>
+</html>

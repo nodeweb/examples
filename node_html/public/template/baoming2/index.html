@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset='utf-8'>
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0">
+		<title>报名</title>
+		<link rel="stylesheet" href="/template/baoming2/base.css">
+		<script src="https://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+		<script src="/template/baoming2/test.js"></script>
+	</head>
+
+	<body>
+		<% include ../baoming2/culd.html %>
+
+		<% posts.forEach(function(p,i){ %>
+			<div class="title">标题是：
+				<%=p.title%>
+			</div>
+			<div class="auth">作者是：
+				<%=p.auth%>
+			</div>
+			<div class="time">时间是：
+				<%=p.createdOn%>
+			</div>
+		<% }) %>
+		<% include ../common/wx_share.html %>
+		<script>
+			wx.ready(function() {
+				var sdata = {
+					title: '九州快讯',
+					desc: '汽车后市场人脉圈',
+					link: window.location.href,
+					imgUrl: 'http://video.jiuzhouauto.com/x-ui/redrain.png',
+					success: function() {},
+					cancel: function() {}
+				};
+				wx.onMenuShareTimeline(sdata);
+				wx.onMenuShareAppMessage(sdata);
+			});
+		</script>
+	</body>
+
+</html>

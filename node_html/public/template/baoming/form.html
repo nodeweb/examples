@@ -1,0 +1,48 @@
+  <div class="warp">
+    <div class="logo">
+      <img src="/template/baoming/images/logo.png" alt="">
+    </div>
+    <div class="conn">
+      <h4 class="padding"><div class="red"></div>活动报名</h4>
+      <form action="" method="post" id="from1">
+        <input type="text" name="fname" class="fname" placeholder="姓名："/><br />
+        <input type="text" name="companyname" class="companyname" placeholder="公司名称："/><br />
+        <input type="text" name="moble" class="moble" placeholder="手机：" onkeyup="this.value=this.value.replace(/\D/g,'')" maxlength="11"/><br />
+        <button type="submit">报名</button>
+      </form>
+    </div>
+    
+  </div>
+  <script>
+  $(function(){
+    $("#from1").submit(function(){ 
+      var username=$(".fname").val(); 
+      var moble=$(".moble").val(); 
+      var companyname=$(".companyname").val(); 
+      if(username=="") 
+      { 
+        alert("姓名不能为空！"); 
+        $(".fname").focus(); 
+        return false; 
+      } 
+      if(companyname=="") 
+      { 
+        alert("公司不能为空！"); 
+        $(".fname").focus(); 
+        return false; 
+      }
+      if(moble=="") 
+      { 
+        alert("手机号码不能为空"); 
+        $(".moble").focus(); 
+        return false; 
+      }else{
+        var re = /(13[0-9]|15[0-9]|18[0-9]|14[3|5])\d{8}/g
+          if (re.test(moble)==false) {
+              alert("手机号码错误");
+              return false; 
+          }
+      }
+    }); 
+  })
+  </script>

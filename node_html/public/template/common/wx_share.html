@@ -1,0 +1,18 @@
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script>
+   wx.config({
+        appId: '<%=wxs.appId%>',
+        timestamp: <%=wxs.timestamp%>,
+        nonceStr: '<%=wxs.nonceStr%>',
+        signature: '<%=wxs.signature%>',
+        jsApiList: [
+          'checkJsApi',
+          'onMenuShareTimeline',
+          'onMenuShareAppMessage',
+          'onMenuShareQQ',
+          'onMenuShareWeibo',
+          'hideMenuItems',
+          'chooseImage'
+        ]
+   });
+</script>
