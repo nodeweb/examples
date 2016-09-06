@@ -6,7 +6,6 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var settings = require('./models/settings');
 var Session = require('express-session');
-var MongoStore = require('connect-mongo')(Session);
 var flash = require('connect-flash');
 var http = require('http');
 
@@ -15,16 +14,21 @@ var users = require('./routes/users');
 
 var app = express();
 
-// create session
+// create redis session
+
+var RedisStore = require('connect-redis')(Session);
+var Options = {
+     "host": "127.0.0.1",
+     "port": "6379",
+     "ttl": 60 * 60 * 12,   //Session的有效期为12小时
+};
 var session = Session({
     secret:settings.secret,
     saveUninitialized: true,
     resave: true,
     key:settings.key,
-    cookie: { maxAge:1000*60*60*6 },
-    store:new MongoStore({
-        url:settings.url
-    })
+    cookie: { domain:'.jiuzhouauto.com',maxAge:1000*60*60*12 },
+    store:new RedisStore(Options)
 });
 
 // view engine setup
