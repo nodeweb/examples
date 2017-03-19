@@ -3,13 +3,16 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "antd": "*",
     "react": "*",
     "react-dom": "*",
     "react-redux": "*",
+    "react-router": "^3.*",
     "redux": "*",
     "redux-saga": "*"
   },
   "devDependencies": {
+    "babel-plugin-import": "*",
     "react-scripts": "*",
     "redux-logger": "*"
   },

@@ -2,6 +2,10 @@ import { call,takeLatest,put } from 'redux-saga/effects';
 import { GET_LIST, NEW_LIST } from '../actions';
 import {getList} from '../services';
 
+
+
+const url = 'http://imsg.jiuzhouauto.com/users';
+
 function* handleSubmit() {
 
     const data = yield call(getList,url)
