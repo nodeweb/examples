@@ -2,6 +2,7 @@
   "name": "myapp",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://www.abc.com/",
   "dependencies": {
     "antd": "*",
     "react": "*",

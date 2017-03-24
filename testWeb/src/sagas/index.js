@@ -4,7 +4,7 @@ import {getList} from '../services';
 
 
 
-const url = 'http://imsg.jiuzhouauto.com/users';
+const url = '/api/users'; // the server must the same to this url ,see the package.json by proxy setting
 
 function* handleSubmit() {
 
