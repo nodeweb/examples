@@ -4,8 +4,8 @@ import requests
 import xml.etree.ElementTree as ET
 import time,random,hashlib,string
 
-AppID = 'wx7d5d25b9e902ea6c'
-AppSecret = '662a5cd0dbc309361659e6248dd10948'
+AppID = 'wx123456'
+AppSecret = '1234567890'
 
 
 def getToken():
