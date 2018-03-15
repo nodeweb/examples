@@ -11,8 +11,8 @@ class RegistDeviceAction extends AliIotBasicAction {
       DeviceId : String,
       DeviceName : String,
       DeviceSecret : String,
-      DeviceStatus : String,
-      ErrorMessage : String,
+      DeviceStatus : undefined,
+      ErrorMessage : undefined,
     });
   }
   setDeviceName(deviceName) {
