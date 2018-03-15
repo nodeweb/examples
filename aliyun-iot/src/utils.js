@@ -80,14 +80,10 @@ class AcsClient {
       throw e;
     }
     //console.log(data);
-    if(action.resSchema(data)) {
+    if(data.Success) {
       return data;
-    }else if(action.reqFailSchema(data)){
+    } else {
       throw new Error(`request:${data.ErrorMessage}`);
-    }else if(action.errResSchema(data)){
-      throw new Error(`middleware:${data.Message}`);
-    }else {
-      throw new Error(JSON.stringify(data));
     }
   }
 }
