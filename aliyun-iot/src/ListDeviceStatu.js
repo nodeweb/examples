@@ -12,7 +12,7 @@ class ListDeviceStatu extends AliIotBasicAction {
       ErrorMessage : String,
     });
   }
-  setDeviceName(deviceName) {
+  setDeviceName(deviceNames) {
     this.paramMap.DeviceNames = deviceNames;
     return this;
   }
