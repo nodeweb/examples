@@ -7,6 +7,7 @@ import PubAction from './PubAction'
 import RegistDeviceAction from './RegistDeviceAction'
 import RevertRpcAction from './RevertRpcAction'
 import ServerOnlineAction from './ServerOnlineAction'
+import ListDeviceStatu from './ListDeviceStatu'
 import SubAction from './SubAction'
 import UnSubAction from './UnSubAction'
 import {AcsClient} from './utils'
@@ -23,4 +24,5 @@ export {DevicePermitModifyAction,
   SubAction,
   UnSubAction,
   AcsClient,
+  ListDeviceStatu,
 };
