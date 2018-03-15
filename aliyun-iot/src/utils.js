@@ -80,11 +80,9 @@ class AcsClient {
       throw e;
     }
     //console.log(data);
-    if(data.Success) {
-      return data;
-    } else {
-      throw new Error(`request:${data.ErrorMessage}`);
-    }
+    
+    return data;
+
   }
 }
 
