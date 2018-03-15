@@ -27,7 +27,7 @@ let _checkSubCallbackSignature = function(productKey, productSecret, message, si
 };
 
 class AliIotBasicAction {
-  constructor({format = 'json', version = '2016-05-30', signatureMethod = 'HMAC-SHA1', signatureVersion = '1.0', regionId = 'cn-hangzhou'}) {
+  constructor({format = 'json', version = '2017-04-20', signatureMethod = 'HMAC-SHA1', signatureVersion = '1.0', regionId = 'cn-shanghai'}) {
     this.httpMethod = 'GET';
     this.paramMap = {};
     this.paramMap.Format = format;
@@ -65,7 +65,7 @@ class AliIotBasicAction {
 
 class AcsClient {
   constructor(accessKeyId = null, accessKeySecret = null) {
-    this.host = 'iot.aliyuncs.com';
+    this.host = 'iot.cn-shanghai.aliyuncs.com';
     this.accessKeyId = accessKeyId;
     this.accessKeySecret = accessKeySecret;
   };
