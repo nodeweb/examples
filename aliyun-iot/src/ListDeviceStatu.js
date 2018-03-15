@@ -15,12 +15,13 @@ class ListDeviceStatu extends AliIotBasicAction {
   }
   setDeviceName(deviceNames) {
     let i = 1
+    let that = this
     async.every(deviceNames,function(one, callback) {
        let name = 'DeviceName.' + i;
-       this.paramMap[name] = one;
+       that.paramMap[name] = one;
        i++;
     },function(err, result){
-      return this;
+      return that;
     })
   }
 }
