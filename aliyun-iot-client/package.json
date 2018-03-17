@@ -1,0 +1,32 @@
+{
+  "name": "aliyun-iot-clien",
+  "version": "0.0.1",
+  "description": "阿里云IoT物联网套件客户端",
+  "main": "index.js",
+  "scripts": {
+    "test": "nyc mocha",
+    "coverage": "nyc report --reporter=html",
+    "coveralls": "nyc report --reporter=text-lcov | coveralls"
+  },
+  "keywords": [
+    "aliyun",
+    "IoT",
+    "aliyun-iot-mqtt",
+    "iot-hub"
+  ],
+  "author": "nodeweb",
+  "license": "MIT",
+  "engines": {
+    "node": ">= 7.6"
+  },
+  "dependencies": {
+    "mqtt": "^2.14.0",
+    "uuid": "^3.1.0"
+  },
+  "devDependencies": {
+    "mocha": "^4.0.1",
+    "nyc": "^11.3.0",
+    "coveralls": "^3.0.0",
+    "chai": "^4.1.2"
+  }
+}
