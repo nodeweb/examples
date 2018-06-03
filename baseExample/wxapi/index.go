@@ -10,7 +10,7 @@ import (
 	"time"
 )
 
-const appid  = "wx7d5d25b9e902ea6c"
+const appid  = "wx1818818181881"
 const appsecret  = "4e24bdeb2276cf1b3136033e9d03eaa8"
 
 type AccessJson struct {
