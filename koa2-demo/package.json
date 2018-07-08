@@ -1,0 +1,35 @@
+{
+  "name": "testApp",
+  "version": "1.0.0",
+  "description": "x-ui",
+  "main": "index.js",
+  "scripts": {
+    "start": "node bin/www",
+    "dev": "./node_modules/.bin/nodemon bin/www",
+    "prd": "pm2 start bin/www",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "123"
+  ],
+  "author": "x-ui",
+  "license": "ISC",
+  "dependencies": {
+    "debug": "*",
+    "ejs": "*",
+    "koa": "*",
+    "koa-bodyparser": "*",
+    "koa-convert": "*",
+    "koa-flash": "*",
+    "koa-json": "*",
+    "koa-logger": "*",
+    "koa-onerror": "*",
+    "koa-redis": "*",
+    "koa-router": "*",
+    "koa-session": "*",
+    "koa-views": "*",
+    "moment": "*",
+    "request": "*",
+    "request-promise": "*"
+  }
+}
