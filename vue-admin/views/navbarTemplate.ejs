@@ -1,0 +1,54 @@
+<script type="text/x-template" id="navbar-template">
+  <el-menu :default-active="num"
+           class="el-menu-vertical-demo"
+           :collapse="iscollapse"
+           @open="handleOpen"
+           @close="handleClose"
+           background-color="#545c64"
+           text-color="#fff"
+           :height="height"
+           active-text-color="#409EFF">
+    <el-menu-item index="money" @click="gohref('money')">
+      <svg class="icon" aria-hidden="true">
+        <use xlink:href="#icon-data"></use>
+      </svg>
+      <span slot="title">交易数据</span>
+    </el-menu-item>
+    <el-menu-item index="system" @click="gohref('system')">
+      <svg class="icon" aria-hidden="true">
+        <use xlink:href="#icon-xitongshezhi"></use>
+      </svg>
+      <span slot="title">系统设置</span>
+    </el-menu-item>
+    <el-menu-item index="redpack" @click="gohref('redpack')">
+      <svg class="icon" aria-hidden="true">
+        <use xlink:href="#icon-ai-hongbao"></use>
+      </svg>
+      <span slot="title">红包设置</span>
+    </el-menu-item>
+    <el-menu-item index="order" @click="gohref('order')">
+      <svg class="icon" aria-hidden="true">
+        <use xlink:href="#icon-liebiao"></use>
+      </svg>
+      <span slot="title">订单列表</span>
+    </el-menu-item>
+    <el-menu-item index="agent" @click="gohref('agent')">
+      <svg class="icon" aria-hidden="true">
+        <use xlink:href="#icon-zuzhijiagou"></use>
+      </svg>
+      <span slot="title">代理列表</span>
+    </el-menu-item>
+    <el-menu-item index="cash" @click="gohref('cash')">
+      <svg class="icon" aria-hidden="true">
+        <use xlink:href="#icon-tixian1"></use>
+      </svg>
+      <span slot="title">提现列表</span>
+    </el-menu-item>
+    <el-menu-item index="sendpack" @click="gohref('sendpack')">
+      <svg class="icon" aria-hidden="true">
+        <use xlink:href="#icon-zanwutixianjilu"></use>
+      </svg>
+      <span slot="title">红包发放</span>
+    </el-menu-item>
+  </el-menu>
+</script>

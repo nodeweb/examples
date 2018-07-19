@@ -1,0 +1,86 @@
+<% include header %>
+
+
+<script type="text/x-template" id="order-template">
+  <div>
+    <el-table
+      ref="multipleTable"
+      :data="list"
+      tooltip-effect="dark"
+      style="width: 100%"
+      v-loading.fullscreen.lock="loading"
+      element-loading-background="rgba(255, 255, 255, 0.3)"
+      @selection-change="handleSelectionChange">
+      <el-table-column
+        type="selection"
+        width="55">
+      </el-table-column>
+      <el-table-column
+        label="#"
+        width="66"
+        prop="ID">
+      </el-table-column>
+      <el-table-column
+        label="订单日期"
+        width="166">
+        <template slot-scope="scope"><span v-html="formatDate(scope.row.CreatedAt)"/></template>
+      </el-table-column>
+      <el-table-column
+        label="金额"
+        width="66">
+        <template slot-scope="scope"><span v-html="formatMoney(scope.row.PayMoney)"/></template>
+      </el-table-column>
+      <el-table-column
+        prop="IsPay"
+        width="66"
+        label="付款">
+        <template slot-scope="scope"><span v-html="formatBool(scope.row.IsPay)"/></template>
+      </el-table-column>
+      <el-table-column
+        width="66"
+        label="红包">
+        <template slot-scope="scope"><span v-html="formatMoney(scope.row.RedPackMoney)"/></template>
+      </el-table-column>
+      <el-table-column
+        width="66"
+        label="发包">
+        <template slot-scope="scope"><span v-html="formatBool(scope.row.IsRedPack)"/></template>
+      </el-table-column>
+      <el-table-column
+        width="66"
+        label="分账">
+        <template slot-scope="scope"><span v-html="formatBool(scope.row.IsSplit)"/></template>
+      </el-table-column>
+      <el-table-column
+        width="66"
+        prop="Team"
+        label="渠道组">
+      </el-table-column>
+      <el-table-column
+        label="微信openid"
+        prop="Gid"
+        show-overflow-tooltip>
+      </el-table-column>
+    </el-table>
+    <div style="margin-top: 20px">
+      <el-pagination
+        @size-change="handleSizeChange"
+        @current-change="handleCurrentChange"
+        :current-page="currentPage"
+        :page-sizes="[100, 200, 300, 400]"
+        :page-size="currentNum"
+        layout="total, sizes, prev, pager, next, jumper"
+        :total="total">
+      </el-pagination>
+    </div>
+  </div>
+</script>
+
+
+
+<div id="order">
+  <orderlist></orderlist>
+</div>
+<script src="/static/js/order.js"></script>
+
+<% include footer %>

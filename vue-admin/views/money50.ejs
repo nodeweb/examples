@@ -1,0 +1,129 @@
+<el-card >
+  <el-row :gutter="20">
+    <el-col :span="8" style="line-height: 28px;font-weight: bold">
+      <i class="el-icon-setting"></i>
+      <span>50元红包设置</span>
+    </el-col>
+    <el-col :span="8" style="text-align: center">
+      <template v-if="edit50">
+        <el-button type="primary" size="mini" :disabled="do50" @click="changeEdit50" icon="el-icon-edit">编辑规则</el-button>
+      </template>
+      <template v-else>
+        <el-button type="success" size="mini" :disabled="do50" @click="saveEdit50" icon="el-icon-check">保存规则</el-button>
+      </template>
+    </el-col>
+    <el-col  :span="8" style="text-align: right">
+      <el-button type="warning" size="mini"  @click="restart50" icon="el-icon-refresh">重新发包</el-button>
+    </el-col>
+  </el-row>
+</el-card>
+<el-card :body-style="{ padding: '0px' }">
+  <el-row class="row1">
+    <el-col :span="4" class="col1"><span>#</span></el-col>
+    <el-col :span="7" class="col2"><span>概率：‰</span></el-col>
+    <el-col :span="7" class="col3"><span>金额：元</span></el-col>
+    <el-col :span="6" class="col4"><span>合计：元</span></el-col>
+  </el-row>
+  <el-row class="row2">
+    <el-col :span="4" class="col1"><span>1</span></el-col>
+    <el-col :span="7" class="col2">
+      <span v-if="edit50" v-html="s50A"/>
+      <el-input-number v-else style="width:100%;" :disabled="do50" @change="changes50" v-model="s50A" precision="0" controls-position="right" size="mini" :min="1"></el-input-number>
+    </el-col>
+    <el-col :span="7" class="col3">
+      <span v-if="edit50" v-html="m50A"/>
+      <el-input-number v-else style="width:100%;" :disabled="do50" @change="changem50" v-model="m50A" precision="2" controls-position="right" size="mini" :min="1"></el-input-number>
+    </el-col>
+    <el-col :span="6" class="col4"><span v-html="sm50A"/></el-col>
+  </el-row>
+  <el-row class="row2">
+    <el-col :span="4" class="col1"><span>2</span></el-col>
+    <el-col :span="7" class="col2">
+      <span v-if="edit50" v-html="s50B"/>
+      <el-input-number v-else style="width:100%;" :disabled="do50" @change="changes50" v-model="s50B" precision="0" controls-position="right" size="mini" :min="1"></el-input-number>
+    </el-col>
+    <el-col :span="7" class="col3">
+      <span v-if="edit50" v-html="m50B"/>
+      <el-input-number v-else style="width:100%;" :disabled="do50" @change="changem50" v-model="m50B" precision="2" controls-position="right" size="mini" :min="1"></el-input-number>
+    </el-col>
+    <el-col :span="6" class="col4"><span v-html="sm50B"/></el-col>
+  </el-row>
+  <el-row class="row2">
+    <el-col :span="4" class="col1"><span>3</span></el-col>
+    <el-col :span="7" class="col2">
+      <span v-if="edit50" v-html="s50C"/>
+      <el-input-number v-else style="width:100%;" :disabled="do50" @change="changes50" v-model="s50C" precision="0" controls-position="right" size="mini" :min="1"></el-input-number>
+    </el-col>
+    <el-col :span="7" class="col3">
+      <span v-if="edit50" v-html="m50C"/>
+      <el-input-number v-else style="width:100%;" :disabled="do50" @change="changem50" v-model="m50C" precision="2" controls-position="right" size="mini" :min="1"></el-input-number>
+    </el-col>
+    <el-col :span="6" class="col4"><span v-html="sm50C"/></el-col>
+  </el-row>
+  <el-row class="row2">
+    <el-col :span="4" class="col1"><span>4</span></el-col>
+    <el-col :span="7" class="col2">
+      <span v-if="edit50" v-html="s50D"/>
+      <el-input-number v-else style="width:100%;" :disabled="do50" @change="changes50" v-model="s50D" precision="0" controls-position="right" size="mini" :min="1"></el-input-number>
+    </el-col>
+    <el-col :span="7" class="col3">
+      <span v-if="edit50" v-html="m50D"/>
+      <el-input-number v-else style="width:100%;" :disabled="do50" @change="changem50" v-model="m50D" precision="2" controls-position="right" size="mini" :min="1"></el-input-number>
+    </el-col>
+    <el-col :span="6" class="col4"><span v-html="sm50D"/></el-col>
+  </el-row>
+  <el-row class="row2">
+    <el-col :span="4" class="col1"><span>5</span></el-col>
+    <el-col :span="7" class="col2">
+      <span v-if="edit50" v-html="s50E"/>
+      <el-input-number v-else style="width:100%;" :disabled="do50" @change="changes50" v-model="s50E" precision="0" controls-position="right" size="mini" :min="1"></el-input-number>
+    </el-col>
+    <el-col :span="7" class="col3">
+      <span v-if="edit50" v-html="m50E"/>
+      <el-input-number v-else style="width:100%;" :disabled="do50" @change="changem50" v-model="m50E" precision="2" controls-position="right" size="mini" :min="1"></el-input-number>
+    </el-col>
+    <el-col :span="6" class="col4"><span v-html="sm50E"/></el-col>
+  </el-row>
+  <el-row class="row2">
+    <el-col :span="4" class="col1"><span>6</span></el-col>
+    <el-col :span="7" class="col2">
+      <span v-if="edit50" v-html="s50F"/>
+      <el-input-number v-else style="width:100%;" :disabled="do50" @change="changes50" v-model="s50F" precision="0" controls-position="right" size="mini" :min="1"></el-input-number>
+    </el-col>
+    <el-col :span="7" class="col3">
+      <span v-if="edit50" v-html="m50F"/>
+      <el-input-number v-else style="width:100%;" :disabled="do50" @change="changem50" v-model="m50F" precision="2" controls-position="right" size="mini" :min="1"></el-input-number>
+    </el-col>
+    <el-col :span="6" class="col4"><span v-html="sm50F"/></el-col>
+  </el-row>
+  <el-row class="row2">
+    <el-col :span="4" class="col1"><span>7</span></el-col>
+    <el-col :span="7" class="col2">
+      <span v-if="edit50" v-html="s50G"/>
+      <el-input-number v-else style="width:100%;" :disabled="do50" @change="changes50" v-model="s50G" precision="0" controls-position="right" size="mini" :min="1"></el-input-number>
+    </el-col>
+    <el-col :span="7" class="col3">
+      <span v-if="edit50" v-html="m50G"/>
+      <el-input-number v-else style="width:100%;" :disabled="do50" @change="changem50" v-model="m50G" precision="2" controls-position="right" size="mini" :min="1"></el-input-number>
+    </el-col>
+    <el-col :span="6" class="col4"><span v-html="sm50G"/></el-col>
+  </el-row>
+  <el-row class="row2">
+    <el-col :span="4" class="col1"><span>8</span></el-col>
+    <el-col :span="7" class="col2">
+      <span v-if="edit50" v-html="s50H"/>
+      <el-input-number v-else style="width:100%;" :disabled="do50" @change="changes50" v-model="s50H" precision="0" controls-position="right" size="mini" :min="1"></el-input-number>
+    </el-col>
+    <el-col :span="7" class="col3">
+      <span v-if="edit50" v-html="m50H"/>
+      <el-input-number v-else style="width:100%;" :disabled="do50" @change="changem50" v-model="m50H" precision="2" controls-position="right" size="mini" :min="1"></el-input-number>
+    </el-col>
+    <el-col :span="6" class="col4"><span v-html="sm50H"/></el-col>
+  </el-row>
+  <el-row class="row3">
+    <el-col :span="4" class="col1"><span></span></el-col>
+    <el-col :span="7" class="col2"><span v-html="s50All"/></el-col>
+    <el-col :span="7" class="col3"><span></span></el-col>
+    <el-col :span="6" class="col4"><span v-html="sm50All"/></el-col>
+  </el-row>
+</el-card>

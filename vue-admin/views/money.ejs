@@ -1,0 +1,62 @@
+<% include header %>
+
+<script type="text/x-template" id="moneyhome-template">
+  <div
+    v-loading.fullscreen.lock="loading"
+    element-loading-background="rgba(255, 255, 255, 0.3)">
+    <el-row type="flex">
+      <el-col :span="12">
+        <div>
+          <el-date-picker
+            v-model="time"
+            type="date"
+            @change="changeDate"
+            placeholder="选择日期">
+          </el-date-picker>
+        </div>
+        <div class="table">
+        <el-row class="bt">
+          <el-col :span="6" class="col1" style="border-radius:4px 0 0 0;">订单总额</el-col>
+          <el-col :span="8" class="col2"><span v-html="ordertotal + '元'"/></el-col>
+        </el-row>
+        <el-row class="bt">
+          <el-col :span="6" class="col1">佣金总额</el-col>
+          <el-col :span="8" class="col2"><span v-html="splittotal + '元'"/></el-col>
+        </el-row>
+        <el-row class="bt">
+          <el-col :span="6" class="col1">佣金已提现</el-col>
+          <el-col :span="8" class="col2"><span v-html="cashTotal + '元'"/></el-col>
+        </el-row>
+          <el-row class="bt">
+            <el-col :span="6" class="col1">红包发放</el-col>
+            <el-col :span="8" class="col2"><span v-html="packTotal + '元'"/></el-col>
+          </el-row>
+        <el-row class="bt">
+          <el-col :span="6" class="col1">平台分成</el-col>
+          <el-col :span="8" class="col2"><span v-html="splitbase + '元'"/></el-col>
+        </el-row>
+        <el-row>
+          <el-col :span="6" class="col1" style="border-bottom:none;border-radius:0 0 0 4px;">渠道利润</el-col>
+          <el-col :span="8" class="col2" style="border-bottom:none"><span v-html="mymoney + '元'"/></el-col>
+        </el-row>
+        </div>
+      </el-col>
+      <el-col :span="12">
+        <div id="money-today" style="width: 100%;height:100%;"></div>
+      </el-col>
+    </el-row>
+    <div style="height:30px;"></div>
+    <el-row>
+      <el-col :span="24">
+        <div id="money-week" style="width: 100%;height:566px;"></div>
+      </el-col>
+    </el-row>
+  </div>
+</script>
+
+<div id="moneyhome">
+  <moneyhome></moneyhome>
+</div>
+<script src="/static/js/money.js"></script>
+
+<% include footer %>

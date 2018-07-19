@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+  <title>icbc</title>
+  <style>
+    .form {
+      margin: 30px auto;
+    }
+  </style>
+</head>
+<body>
+<form method="post" action="http://www.vrarbar.cn/apisubmit" class="form">
+  <input type="hidden" name="version" value="<%=version%>"/>
+  <input type="hidden" name="customerid" value="<%=customerid%>"/>
+  <input type="hidden" name="sdorderno" value="<%=sdorderno%>"/>
+  <input type="hidden" name="total_fee" value="<%=total_fee%>"/>
+  <input type="hidden" name="paytype" value="<%=paytype%>"/>
+  <input type="hidden" name="notifyurl" value="<%=notifyurl%>"/>
+  <input type="hidden" name="returnurl" value="<%=returnurl%>"/>
+  <input type="hidden" name="sign" value="<%=sign%>"/>
+  <input type="submit" value="立即支付"/>
+</form>
+</body>
+</html>

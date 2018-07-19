@@ -1,0 +1,40 @@
+<el-row :gutter="20" style="margin-bottom: 30px;">
+  <el-col :span="10">
+    <el-card>客服群二维码</el-card>
+    <el-card>
+      <el-row>
+        <el-col>
+          <el-upload
+            class="qqun-uploader"
+            action="/system/qunimgupload"
+            with-credentials="true"
+            :show-file-list="false"
+            :on-success="handleQQSuccess"
+            :before-upload="beforeQQUpload">
+            <img v-if="qqImg" :src="qqImg" class="qqun" :style="qqHeight">
+            <i v-else class="el-icon-plus qqun-uploader-icon"></i>
+          </el-upload>
+        </el-col>
+      </el-row>
+    </el-card>
+  </el-col>
+  <el-col :span="10">
+    <el-card>推广二维码背景</el-card>
+    <el-card>
+      <el-row>
+        <el-col>
+          <el-upload
+            class="qrcode-uploader"
+            action="/system/qrbgupload"
+            with-credentials="true"
+            :show-file-list="false"
+            :on-success="handleQRSuccess"
+            :before-upload="beforeQRUpload">
+            <img v-if="qrImg" :src="qrImg" class="qrcode" :style="qrHeight">
+            <i v-else class="el-icon-plus qrcode-uploader-icon"></i>
+          </el-upload>
+        </el-col>
+      </el-row>
+    </el-card>
+  </el-col>
+</el-row>

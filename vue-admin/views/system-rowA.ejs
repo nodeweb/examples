@@ -1,0 +1,127 @@
+<el-row :gutter="20" style="margin-bottom: 30px;">
+
+
+  <el-col :span="10">
+    <el-card>
+      <el-row :gutter="5">
+        <el-col :span="12">
+          <span style="padding-right: 15px;">代理提现</span>
+          <el-switch
+            v-model="open"
+            @change="switchChange"
+            :disabled="switchDis"
+            active-color="#13ce66"
+            inactive-color="#ff4949">
+          </el-switch>
+        </el-col>
+        <el-col :span="12">
+          <span style="padding-right: 15px;">网站开关</span>
+          <el-switch
+            v-model="web_statu"
+            @change="webChange"
+            :disabled="webDis"
+            active-color="#13ce66"
+            inactive-color="#ff4949">
+          </el-switch>
+        </el-col>
+      </el-row>
+    </el-card>
+    <el-card>
+      <el-row :gutter="5" type="flex" align="middle" style="height:30px;">
+        <el-col :span="8">
+          <span>一级分佣</span>
+        </el-col>
+        <el-col :span="16">
+          <div v-if="editA" v-html="numA+'%'"></div>
+          <el-input-number v-else style="width:80px;" :disabled="editDis" v-model="numA" controls-position="right" size="mini" :min="1" :max="10"></el-input-number>
+        </el-col>
+      </el-row>
+      <el-row :gutter="5" type="flex" align="middle" style="height:30px;margin-top:20px;">
+        <el-col :span="8">
+          <span>二级分佣</span>
+        </el-col>
+        <el-col :span="16">
+          <div v-if="editA" v-html="numB+'%'"></div>
+          <el-input-number v-else style="width:80px;" :disabled="editDis" v-model="numB" controls-position="right" size="mini" :min="1" :max="10"></el-input-number>
+        </el-col>
+      </el-row>
+      <el-row :gutter="5" type="flex" align="middle" style="height:30px;margin-top:20px;">
+        <el-col :span="8">
+          <span>三级分佣</span>
+        </el-col>
+        <el-col :span="16">
+          <div v-if="editA" v-html="numC+'%'"></div>
+          <el-input-number v-else style="width:80px;" :disabled="editDis" v-model="numC" controls-position="right" size="mini" :min="1" :max="10"></el-input-number>
+        </el-col>
+      </el-row>
+      <el-row :gutter="5" type="flex" align="middle" style="height:30px;margin-top:20px;">
+        <el-col :span="8">平台分佣</el-col>
+        <el-col :span="16"><div v-html="numD+'%'"></div></el-col>
+      </el-row>
+      <el-row  style="margin-top:20px;text-align: right;">
+        <el-col :span="24">
+          <template v-if="editA">
+            <el-button type="primary" size="mini" :disabled="editDis" @click="changeEditA" icon="el-icon-edit">编辑</el-button>
+          </template>
+          <template v-else>
+            <el-button type="success" size="mini" :disabled="editDis" @click="saveEditA" icon="el-icon-check">保存</el-button>
+          </template>
+        </el-col>
+      </el-row>
+    </el-card>
+  </el-col>
+
+
+
+  <el-col :span="10">
+    <el-card>域名设置</el-card>
+    <el-card>
+      <el-row :gutter="5" type="flex" align="middle" style="height:30px;">
+        <el-col :span="8">
+          <span>二维码域名</span>
+        </el-col>
+        <el-col :span="16">
+          <div v-if="editB" v-html="qrDo"></div>
+          <el-input v-else v-model="qrDo" :disabled="doDis" size="mini" placeholder="请输入内容"></el-input>
+        </el-col>
+      </el-row>
+      <el-row :gutter="5" type="flex" align="middle" style="height:30px;margin-top:20px;">
+        <el-col :span="8">
+          <span>业务页面域名</span>
+        </el-col>
+        <el-col :span="16">
+          <div v-if="editB" v-html="webDo"></div>
+          <el-input v-else v-model="webDo" :disabled="doDis" size="mini" placeholder="请输入内容"></el-input>
+        </el-col>
+      </el-row>
+      <el-row :gutter="5" type="flex" align="middle" style="height:30px;margin-top:20px;">
+        <el-col :span="8">
+          <span>微信跳转域名</span>
+        </el-col>
+        <el-col :span="16">
+          <div v-if="editB" v-html="wxDo"></div>
+          <el-input v-else v-model="wxDo" :disabled="doDis" size="mini" placeholder="请输入内容"></el-input>
+        </el-col>
+      </el-row>
+      <el-row :gutter="5" type="flex" align="middle" style="height:30px;margin-top:20px;">
+        <el-col :span="8"></el-col>
+        <el-col :span="16"></el-col>
+      </el-row>
+      <el-row  style="margin-top:20px;text-align: right;">
+        <el-col :span="24">
+          <template v-if="editB">
+            <el-button type="primary" size="mini" :disabled="doDis" @click="changeEditB" icon="el-icon-edit">编辑</el-button>
+          </template>
+          <template v-else>
+            <el-button type="success" size="mini" :disabled="doDis" @click="saveEditB" icon="el-icon-check">保存</el-button>
+          </template>
+        </el-col>
+      </el-row>
+    </el-card>
+  </el-col>
+
+
+
+
+
+</el-row>

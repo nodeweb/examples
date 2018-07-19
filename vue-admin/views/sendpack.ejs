@@ -1,0 +1,80 @@
+<% include header %>
+
+
+<script type="text/x-template" id="sendpack-template">
+  <div>
+    <el-table
+      ref="multipleTable"
+      :data="list"
+      tooltip-effect="dark"
+      style="width: 100%"
+      v-loading.fullscreen.lock="loading"
+      element-loading-background="rgba(255, 255, 255, 0.3)"
+      @selection-change="handleSelectionChange">
+      <el-table-column
+        type="selection"
+        width="55">
+      </el-table-column>
+      <el-table-column
+        label="#"
+        width="66"
+        prop="ID">
+      </el-table-column>
+      <el-table-column
+        label="发包日期"
+        width="166">
+        <template slot-scope="scope"><span v-html="formatDate(scope.row.CreatedAt)"/></template>
+      </el-table-column>
+      <el-table-column
+        width="166"
+        prop="OrderId"
+        label="订单编号">
+      </el-table-column>
+      <el-table-column
+        label="金额"
+        width="66">
+        <template slot-scope="scope"><span v-html="formatMoney(scope.row.Amount)"/></template>
+      </el-table-column>
+      <el-table-column
+        width="66"
+        prop="MyTeam"
+        label="渠道组">
+      </el-table-column>
+      <el-table-column
+        prop="ResultCode"
+        width="88"
+        label="发包结果">
+      </el-table-column>
+      <el-table-column
+        prop="Openid"
+        width="166"
+        label="微信openid">
+      </el-table-column>
+      <el-table-column
+        label="结果描述"
+        prop="ErrCodeDes"
+        show-overflow-tooltip>
+      </el-table-column>
+    </el-table>
+    <div style="margin-top: 20px">
+      <el-pagination
+        @size-change="handleSizeChange"
+        @current-change="handleCurrentChange"
+        :current-page="currentPage"
+        :page-sizes="[100, 200, 300, 400]"
+        :page-size="currentNum"
+        layout="total, sizes, prev, pager, next, jumper"
+        :total="total">
+      </el-pagination>
+    </div>
+  </div>
+</script>
+
+
+
+<div id="sendpack">
+  <sendpacklist></sendpacklist>
+</div>
+<script src="/static/js/sendpack.js"></script>
+
+<% include footer %>
